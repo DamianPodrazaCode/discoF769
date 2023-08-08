@@ -1,10 +1,17 @@
-17:44:41 **** Incremental Build of configuration Debug for project 010_SPI ****
+20:25:22 **** Incremental Build of configuration Debug for project 010_SPI ****
 make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "010_SPI.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\010_SPI\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="010_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 010_SPI.elf
+ 
 arm-none-eabi-size   010_SPI.elf 
+arm-none-eabi-objdump -h -S  010_SPI.elf  > "010_SPI.list"
    text	   data	    bss	    dec	    hex	filename
-   8444	     20	   1668	  10132	   2794	010_SPI.elf
+   8664	     20	   1668	  10352	   2870	010_SPI.elf
 Finished building: default.size.stdout
  
+Finished building: 010_SPI.list
+ 
 
-17:44:41 Build Finished. 0 errors, 0 warnings. (took 146ms)
+20:25:24 Build Finished. 0 errors, 0 warnings. (took 2s.212ms)
 
