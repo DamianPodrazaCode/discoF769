@@ -1,0 +1,11 @@
+/*
+ * myMain.c
+ *
+ *  Created on: Aug 7, 2023
+ *      Author: ZoMbiE
+ */
+
+#include "myMain.h"
+
+void setup();
+void loop();
