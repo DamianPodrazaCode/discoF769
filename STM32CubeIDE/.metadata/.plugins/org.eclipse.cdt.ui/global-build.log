@@ -680,3 +680,510 @@ Finished building: default.size.stdout
  
 Finished building: 011_SPI_IT_DMA.list
  
+20:43:25 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9024	     20	   1668	  10712	   29d8	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:48:53 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+../Core/Src/myMain.c: In function 'HAL_SPI_TxCpltCallback':
+../Core/Src/myMain.c:20:18: error: invalid operands to binary == (have 'SPI_HandleTypeDef *' {aka 'struct __SPI_HandleTypeDef *'} and 'SPI_HandleTypeDef' {aka 'struct __SPI_HandleTypeDef'})
+   20 |         if (hspi == hspi2) {
+      |                  ^~
+make: *** [Core/Src/subdir.mk:37: Core/Src/myMain.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:49:19 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9036	     40	   1672	  10748	   29fc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:53:43 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9036	     40	   1672	  10748	   29fc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:54:26 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9036	     40	   1672	  10748	   29fc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:55:41 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9036	     40	   1672	  10748	   29fc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:56:38 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9036	     40	   1672	  10748	   29fc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+20:58:09 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:03:43 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9328	     40	   1672	  11040	   2b20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:17:51 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9328	     40	   1672	  11040	   2b20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:24:52 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9328	     40	   1672	  11040	   2b20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:25:44 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9208	     40	   1672	  10920	   2aa8	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:26:35 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:27:15 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9208	     40	   1672	  10920	   2aa8	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:27:45 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9548	     40	   1672	  11260	   2bfc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:30:30 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9584	     40	   1672	  11296	   2c20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:31:33 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9584	     40	   1672	  11296	   2c20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:32:21 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9584	     40	   1672	  11296	   2c20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+21:37:05 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9548	     40	   1672	  11260	   2bfc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:39:40 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:52:13: warning: 'MPU_Initialize' declared 'static' but never defined [-Wunused-function]
+   52 | static void MPU_Initialize(void);
+      |             ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9328	     40	   1672	  11040	   2b20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+21:40:08 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9328	     40	   1672	  11040	   2b20	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+21:41:08 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:19:12 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:21:09 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:21:12 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8988	     40	   1672	  10700	   29cc	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+16:21:44 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+   9208	     40	   1672	  10920	   2aa8	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:21:46 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9208	     40	   1672	  10920	   2aa8	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+16:33:09 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_hal_msp.d" -MT"Core/Src/stm32f7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  10892	     40	   1768	  12700	   319c	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:34:53 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+../Core/Src/myMain.c: In function 'setup':
+../Core/Src/myMain.c:17:30: warning: pointer targets in passing argument 2 of 'HAL_SPI_Transmit_DMA' differ in signedness [-Wpointer-sign]
+   17 | HAL_SPI_Transmit_DMA(&hspi2, pData, 12);
+      |                              ^~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f7xx_hal_conf.h:407,
+                 from ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/myMain.h:11,
+                 from ../Core/Src/myMain.c:8:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h:800:74: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  800 | HAL_StatusTypeDef HAL_SPI_Transmit_DMA(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size);
+      |                                                                 ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11360	     40	   1768	  13168	   3370	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:35:32 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11360	     40	   1768	  13168	   3370	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:40:19 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+../Core/Src/myMain.c: In function 'setup':
+../Core/Src/myMain.c:17:38: warning: pointer targets in passing argument 2 of 'HAL_SPI_Transmit_DMA' differ in signedness [-Wpointer-sign]
+   17 |         HAL_SPI_Transmit_DMA(&hspi2, pData, 12);
+      |                                      ^~~~~
+      |                                      |
+      |                                      char *
+In file included from ../Core/Inc/stm32f7xx_hal_conf.h:407,
+                 from ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Inc/myMain.h:11,
+                 from ../Core/Src/myMain.c:8:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h:800:74: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  800 | HAL_StatusTypeDef HAL_SPI_Transmit_DMA(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size);
+      |                                                                 ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11336	     40	   1768	  13144	   3358	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:40:37 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11336	     40	   1768	  13144	   3358	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:40:39 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11336	     40	   1768	  13144	   3358	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+16:48:23 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11116	     40	   1768	  12924	   327c	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 
+16:48:26 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11116	     40	   1768	  12924	   327c	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+16:49:36 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
+arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011_SPI_IT_DMA.elf
+ 
+arm-none-eabi-size   011_SPI_IT_DMA.elf 
+arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
+   text	   data	    bss	    dec	    hex	filename
+  11364	     40	   1768	  13172	   3374	011_SPI_IT_DMA.elf
+Finished building: default.size.stdout
+ 
+Finished building: 011_SPI_IT_DMA.list
+ 

@@ -1,2 +1,2 @@
-../Core/Src/myMain.c:12:6:setup	4	static
-../Core/Src/myMain.c:15:6:loop	32	static
+../Core/Src/myMain.c:16:6:setup	8	static
+../Core/Src/myMain.c:28:6:loop	4	static

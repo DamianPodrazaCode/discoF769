@@ -1,17 +1,18 @@
-20:37:46 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
+16:49:36 **** Incremental Build of configuration Debug for project 011_SPI_IT_DMA ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/myMain.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myMain.d" -MT"Core/Src/myMain.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myMain.o"
 arm-none-eabi-gcc -o "011_SPI_IT_DMA.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\011_SPI_IT_DMA\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011_SPI_IT_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011_SPI_IT_DMA.elf
  
 arm-none-eabi-size   011_SPI_IT_DMA.elf 
 arm-none-eabi-objdump -h -S  011_SPI_IT_DMA.elf  > "011_SPI_IT_DMA.list"
    text	   data	    bss	    dec	    hex	filename
-   9188	     20	   1668	  10876	   2a7c	011_SPI_IT_DMA.elf
+  11364	     40	   1768	  13172	   3374	011_SPI_IT_DMA.elf
 Finished building: default.size.stdout
  
 Finished building: 011_SPI_IT_DMA.list
  
 
-20:37:46 Build Finished. 0 errors, 0 warnings. (took 750ms)
+16:49:37 Build Finished. 0 errors, 0 warnings. (took 650ms)
 
