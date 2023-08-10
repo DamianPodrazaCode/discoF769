@@ -1,0 +1,16 @@
+10:07:04 **** Incremental Build of configuration Debug for project 030_empty2 ****
+make -j12 all 
+arm-none-eabi-gcc -o "030_empty2.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\030_empty2\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="030_empty2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 030_empty2.elf
+ 
+arm-none-eabi-size   030_empty2.elf 
+arm-none-eabi-objdump -h -S  030_empty2.elf  > "030_empty2.list"
+   text	   data	    bss	    dec	    hex	filename
+   4840	     20	   1572	   6432	   1920	030_empty2.elf
+Finished building: default.size.stdout
+ 
+Finished building: 030_empty2.list
+ 
+
+10:07:04 Build Finished. 0 errors, 0 warnings. (took 340ms)
+

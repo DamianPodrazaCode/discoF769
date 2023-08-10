@@ -160,8 +160,6 @@ int main(void) {
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
-		for (int i = 0; i < 0x400000; i++)
-			*(__IO uint32_t*) (SDRAM_BANK_ADDR + 4 * i) = i;
 		for (int i = 0; i < 100; i++)
 			*(__IO uint32_t*) (SDRAM_BANK_ADDR + 4 * i) = i;
 		/* USER CODE END WHILE */
