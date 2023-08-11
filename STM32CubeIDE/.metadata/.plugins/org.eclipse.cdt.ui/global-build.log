@@ -2367,3 +2367,299 @@ Finished building: default.size.stdout
  
 Finished building: 020_SDRAM.list
  
+13:43:07 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7580	     20	   1644	   9244	   241c	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+13:44:14 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'BSP_SDRAM_Initialization_Sequence':
+../Core/Src/main.c:75:23: warning: unused variable 'tmpmrd' [-Wunused-variable]
+   75 |         __IO uint32_t tmpmrd = 0;
+      |                       ^~~~~~
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7576	     20	   1644	   9240	   2418	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+13:44:46 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7572	     20	   1644	   9236	   2414	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+13:44:51 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7572	     20	   1644	   9236	   2414	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+13:45:04 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7572	     20	   1644	   9236	   2414	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+13:47:54 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7576	     20	   1644	   9240	   2418	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+13:48:07 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7576	     20	   1644	   9240	   2418	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+14:28:26 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+14:28:32 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+14:28:43 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+16:04:30 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:04:38 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:05:07 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:10:09 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	     20	   1644	   9360	   2490	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:12:43 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'MX_FMC_Init':
+../Core/Src/main.c:241:54: error: 'command' undeclared (first use in this function)
+  241 |         BSP_SDRAM_Initialization_Sequence(&hsdram1, &command);
+      |                                                      ^~~~~~~
+../Core/Src/main.c:241:54: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:13:04 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7672	     20	   1628	   9320	   2468	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:14:04 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'MX_FMC_Init':
+../Core/Src/main.c:242:9: error: 'cmd' undeclared (first use in this function)
+  242 |         cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
+      |         ^~~
+../Core/Src/main.c:242:9: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Core/Src/main.c:75:13: warning: 'BSP_SDRAM_Initialization_Sequence' defined but not used [-Wunused-function]
+   75 | static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram) {
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:14:24 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:75:13: warning: 'BSP_SDRAM_Initialization_Sequence' defined but not used [-Wunused-function]
+   75 | static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram) {
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:15:03 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'BSP_SDRAM_Initialization_Sequence':
+../Core/Src/main.c:84:38: error: 'SDRAM_MODEREG_BURST_LENGTH_1' undeclared (first use in this function)
+   84 |         cmd.ModeRegisterDefinition = SDRAM_MODEREG_BURST_LENGTH_1 | SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:84:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:84:69: error: 'SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL' undeclared (first use in this function)
+   84 |         cmd.ModeRegisterDefinition = SDRAM_MODEREG_BURST_LENGTH_1 | SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2
+      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:84:107: error: 'SDRAM_MODEREG_CAS_LATENCY_2' undeclared (first use in this function)
+   84 |         cmd.ModeRegisterDefinition = SDRAM_MODEREG_BURST_LENGTH_1 | SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2
+      |                                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:85:27: error: 'SDRAM_MODEREG_OPERATING_MODE_STANDARD' undeclared (first use in this function)
+   85 |                         | SDRAM_MODEREG_OPERATING_MODE_STANDARD | SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:85:67: error: 'SDRAM_MODEREG_WRITEBURST_MODE_SINGLE' undeclared (first use in this function)
+   85 |                         | SDRAM_MODEREG_OPERATING_MODE_STANDARD | SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+      |                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At top level:
+../Core/Src/main.c:63:13: warning: 'BSP_SDRAM_Initialization_Sequence' defined but not used [-Wunused-function]
+   63 | static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram) {
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:15:23 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:88:1: error: expected identifier or '(' before '}' token
+   88 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:15:31 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:16:35 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+16:16:46 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+16:18:02 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F769xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "020_SDRAM.elf" @"objects.list"   -mcpu=cortex-m7 -T"D:\__GitHub\discoF769\STM32CubeIDE\020_SDRAM\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="020_SDRAM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 020_SDRAM.elf
+ 
+arm-none-eabi-size   020_SDRAM.elf 
+arm-none-eabi-objdump -h -S  020_SDRAM.elf  > "020_SDRAM.list"
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 020_SDRAM.list
+ 
+16:22:25 **** Incremental Build of configuration Debug for project 020_SDRAM ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7648	     20	   1628	   9296	   2450	020_SDRAM.elf
+Finished building: default.size.stdout
+ 

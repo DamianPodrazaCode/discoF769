@@ -9,7 +9,7 @@
 
 // adres start 0xC0000000 - adres stop 0xc0ffffff - 128Mb, 16MB, 8M half Word, 4M Word
 #define SDRAM_BANK_ADDR                 			((uint32_t)0xC0000000)
-#define SDRAM_TIMEOUT     							((uint32_t)0xFFFF)
+
 #define SDRAM_MODEREG_BURST_LENGTH_1            	((uint16_t)0x0000)
 #define SDRAM_MODEREG_BURST_LENGTH_2            	((uint16_t)0x0001)
 #define SDRAM_MODEREG_BURST_LENGTH_4            	((uint16_t)0x0002)
@@ -22,24 +22,18 @@
 #define SDRAM_MODEREG_WRITEBURST_MODE_PROGRAMMED	((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_SINGLE    	((uint16_t)0x0200)
 
-static SDRAM_HandleTypeDef hsdram1;
-static FMC_SDRAM_CommandTypeDef command;
-
-static void FMC_Init(void);
-static void Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
-
 static void FMC_Init(void) {
-	FMC_SDRAM_TimingTypeDef SdramTiming = { 0 };
 
+	SDRAM_HandleTypeDef hsdram1;
 	// Perform the SDRAM1 memory initialization sequence
 	hsdram1.Instance = FMC_SDRAM_DEVICE;
 	// hsdram1.Init
 
 	//(clock and chip enable) wybiera się otpowiednie piny, i automatycznie wybiera się bank
 	hsdram1.Init.SDBank = FMC_SDRAM_BANK1;
-	//manual Column addressing 256 | A[7:0]
+	//manual - Column addressing 256 | A[7:0]
 	hsdram1.Init.ColumnBitsNumber = FMC_SDRAM_COLUMN_BITS_NUM_8;
-	// manual Row addressing 4K A[11:0]
+	// manual - Row addressing 4K A[11:0]
 	hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;
 	// szerokość szyny danych
 	hsdram1.Init.MemoryDataWidth = FMC_SDRAM_MEM_BUS_WIDTH_32;
@@ -49,15 +43,18 @@ static void FMC_Init(void) {
 	// Specifies the SDRAM Column Access Strobe (CAS) latency in number of memory clock cycles.
 	//(CAS latency) jeżeli jest możliwość to wybieramy odpowiednią CL i do niej dopasowujemy czasy wg manuala
 	hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_2;
+
 	// zabezpieczenie zapisu
 	hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
-	//dzielnik taktowania pamięci, 200Mhz/2 = 100MHz dla SDRAM
+
+	//dzielnik taktowania pamięci, MCU_CLK/2, 200Mhz/2 = 100MHz dla SDRAM
 	hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
 
 	hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
 
 	hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
 
+	FMC_SDRAM_TimingTypeDef SdramTiming = { 0 };
 	// SdramTiming
 	// Trzeba odszukać odpowiednie wartości z manuala
 	// Zegar dla sdram to 100MHz, wskazany przez dzielnik w hsdram1.Init.CASLatency
@@ -159,49 +156,61 @@ static void FMC_Init(void) {
 
 	HAL_SDRAM_Init(&hsdram1, &SdramTiming);
 
-	Initialization_Sequence(&hsdram1, &command);
-}
-
-// inicjalizacja pamięci SDRAM, każda pamięć ma swój rodzaj inicjalizacji, ale wszystkie są do siebie bardzo podobne
-static void Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command) {
-	__IO uint32_t tmpmrd = 0;
+	// inicjalizacja pamięci SDRAM, każda pamięć ma swój rodzaj inicjalizacji, ale wszystkie są do siebie bardzo podobne
+	FMC_SDRAM_CommandTypeDef cmd;
 	// Configure a clock configuration enable command
-	Command->CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
-	Command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
-	Command->AutoRefreshNumber = 1;
-	Command->ModeRegisterDefinition = 0;
-	HAL_SDRAM_SendCommand(hsdram, Command, SDRAM_TIMEOUT);
+	cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
 	// Insert 100 us minimum delay. Inserted delay is equal to 1 ms due to systick time base unit (ms)
 	HAL_Delay(1);
 
 	// Configure a PALL (precharge all) command
-	Command->CommandMode = FMC_SDRAM_CMD_PALL;
-	Command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
-	Command->AutoRefreshNumber = 1;
-	Command->ModeRegisterDefinition = 0;
-	HAL_SDRAM_SendCommand(hsdram, Command, SDRAM_TIMEOUT);
+	cmd.CommandMode = FMC_SDRAM_CMD_PALL;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
 	// Configure a Auto-Refresh command
-	Command->CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
-	Command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
-	Command->AutoRefreshNumber = 8;
-	Command->ModeRegisterDefinition = 0;
-	HAL_SDRAM_SendCommand(hsdram, Command, SDRAM_TIMEOUT);
+	cmd.CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 8;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
 	// Program the external memory mode register
-	tmpmrd = (uint32_t)
+	cmd.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition =
 	SDRAM_MODEREG_BURST_LENGTH_1 |
 	SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL |
 	SDRAM_MODEREG_CAS_LATENCY_2 |
 	SDRAM_MODEREG_OPERATING_MODE_STANDARD |
 	SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
-	Command->CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
-	Command->CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
-	Command->AutoRefreshNumber = 1;
-	Command->ModeRegisterDefinition = tmpmrd;
-	HAL_SDRAM_SendCommand(hsdram, Command, SDRAM_TIMEOUT);
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
-	// Set the refresh rate counter, (15.62 us x Freq) - 20, Set the device refresh counter
-	hsdram->Instance->SDRTR |= ((uint32_t) ((1292) << 1));
+	// SDRAM refresh rate = SDRAM refresh period / Number of rows
+	// Refresh rate = (SDRAM refresh rate × SDRAM clock frequency) – 20
+
+	// przykład do obliczenia wartości poniżej
+	// najpierw SDRAM refresh rate
+	// wartości "SDRAM refresh period" i "Number of rows", podawane są przeważnie na pierwszej stronie manuala od SDRAM
+	// np. 64ms, 4096-cycle refresh (micron MT48LC4M32B2B5-6A F746Disco, F769Disco),
+	// np. 4096 refresh cycles every 64 ms (ISSI IS42S16400J F429Disco),
+	// np. 64ms, 8192-cycle refresh (micron MT48LC16M16A2)
+	// np. 64ms refresh period (8K Cycle) (samsung K4S281632I),
+	// np. 64ms refresh period (4K Cycle) (samsung K4S561632E),
+	// np. 4K refresh cycles/64mS (winbond W9864G6IH)
+	// czyli w tym przypadku 64ms, 4096-cycle refresh (micron MT48LC4M32B2B5-6A)
+	// SDRAM refresh rate = 64ms/4096 = 0,064/4096 = 0,000015625 = 15,625us
+	// teraz Refresh rate który wpisujemy do parametru drugiego funkcji
+	// Pamięć taktowana 100MHz
+	// Refresh rate = (15,625us x 100MHz) - 20 = (0,000015625 x 100000000) - 20 = 1542,5
+	HAL_SDRAM_ProgramRefreshRate(&hsdram1, 1543);
 }
+
