@@ -29,7 +29,7 @@ static void FMC_Init(void) {
 	hsdram1.Instance = FMC_SDRAM_DEVICE;
 	// hsdram1.Init
 
-	//(clock and chip enable) wybiera się otpowiednie piny, i automatycznie wybiera się bank
+	//(clock and chip enable) wybiera się odpowiednie piny, i automatycznie wybiera się bank
 	hsdram1.Init.SDBank = FMC_SDRAM_BANK1;
 	// manual - Column addressing 256 | A[7:0]
 	hsdram1.Init.ColumnBitsNumber = FMC_SDRAM_COLUMN_BITS_NUM_8;
@@ -202,7 +202,7 @@ static void FMC_Init(void) {
 	// wartości "SDRAM refresh period" i "Number of rows", podawane są przeważnie na pierwszej stronie manuala od SDRAM
 	// np. 64ms, 4096-cycle refresh (micron MT48LC4M32B2B5-6A F746Disco, F769Disco),
 	// np. 4096 refresh cycles every 64 ms (ISSI IS42S16400J F429Disco),
-	// np. 64ms, 8192-cycle refresh (micron MT48LC16M16A2)
+	// np. 64ms, 8192-cycle refresh (micron MT48LC16M16A2-75)
 	// np. 64ms refresh period (8K Cycle) (samsung K4S281632I),
 	// np. 64ms refresh period (4K Cycle) (samsung K4S561632E),
 	// np. 4K refresh cycles/64mS (winbond W9864G6IH)
