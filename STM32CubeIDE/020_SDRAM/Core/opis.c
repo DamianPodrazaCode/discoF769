@@ -31,7 +31,7 @@ static void FMC_Init(void) {
 
 	//(clock and chip enable) wybiera się otpowiednie piny, i automatycznie wybiera się bank
 	hsdram1.Init.SDBank = FMC_SDRAM_BANK1;
-	//manual - Column addressing 256 | A[7:0]
+	// manual - Column addressing 256 | A[7:0]
 	hsdram1.Init.ColumnBitsNumber = FMC_SDRAM_COLUMN_BITS_NUM_8;
 	// manual - Row addressing 4K A[11:0]
 	hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;

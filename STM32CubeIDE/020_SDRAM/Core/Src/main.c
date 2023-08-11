@@ -95,12 +95,37 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 
 	// adres start 0xC0000000 - adres stop 0xc0ffffff - 128Mb, 16MB, 8M half Word, 4M Word
-	#define SDRAM_BANK_ADDR                 			((uint32_t)0xC0000000)
+#define SDRAM_BANK_ADDR ((uint32_t)0xC0000000)
+
+	// czyszczenie całej pamięci SDRAM
+	volatile uint32_t clearTimeSDRAM = HAL_GetTick();
+	for (int i = 0; i < 0x1000000; i++)
+		*(__IO uint8_t*) (SDRAM_BANK_ADDR + (1 * i)) = 0xc8;
+	clearTimeSDRAM = HAL_GetTick() - clearTimeSDRAM;
+	__NOP();
+
+	// uzupełnianie pamięci ram
+	uint8_t tab[0x100] = { 0 };
+	volatile uint32_t timeRAM = HAL_GetTick();
+	for (int j = 0; j < 0x10000; j++)
+		for (int i = 0; i < 0x100; i++) {
+			tab[i] = i;
+		}
+	timeRAM = HAL_GetTick() - timeRAM;
+	__NOP();
+
+	// uzupełnianie SDRAM
+	volatile uint32_t timeSDRAM = HAL_GetTick();
+	for (int j = 0; j < 0x10000; j++)
+		for (int i = 0; i < 0x100; i++) {
+			*(__IO uint8_t*) (SDRAM_BANK_ADDR + (1 * i)) = i; //bajt
+			//	*(__IO uint16_t*) (SDRAM_BANK_ADDR + (2 * i)) = i; //pół słowo
+			//	*(__IO uint32_t*) (SDRAM_BANK_ADDR + (4 * i)) = i; // słowo
+		}
+	timeSDRAM = HAL_GetTick() - timeSDRAM;
+	__NOP();
 
 	while (1) {
-		for (int i = 0; i < (0x01000000 / 4); i++)
-			*(__IO uint32_t*) (SDRAM_BANK_ADDR + 4 * i) = i;
-
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
