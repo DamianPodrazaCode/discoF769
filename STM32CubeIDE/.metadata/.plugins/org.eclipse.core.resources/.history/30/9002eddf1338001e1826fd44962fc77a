@@ -64,65 +64,28 @@ static void FMC_Init(void) {
 	// obliczamy czas trwania jednego cykla zegara, 1/100Mhz = 10ns,
 	// poniżej wszystkie dane dzielimy przez tą wartość
 
-	// (EN)Specifies the delay between a Load Mode Register command and an Active
+	// Defines the delay between a Load Mode Register command and an active
 	// or Refresh command in number of memory clock cycles.
-	// If two SDRAM devices are connected, all the accesses performed simultaneously to both devices
-	// by the Command Mode register (Load Mode Register command)
-	// are issued using the timing parameters configured for Bank 1 (TMRD (Load mode register to active delay)
-	// and TRAS (Self-refresh time) timings) in the FMC_SDTR1 register.
-	// The TRP (Row precharge delay) and TRC (Row cycle delay) timings are only configured
-	// in the FMC_SDTR1 register. If two SDRAM devices are used,
-	// the TRP and TRC timings must be programmed with the timings of the slowest device.
-	// (PL)Określa opóźnienie między poleceniem Load Mode Register a poleceniem Active lub Refresh
-	// w liczbie cykli zegara pamięci. Jeśli podłączone są dwa urządzenia SDRAM,
-	// wszystkie dostępy wykonywane jednocześnie do obu urządzeń przez rejestr trybu poleceń
-	// (polecenie Load Mode Register) są wydawane przy użyciu parametrów czasowych skonfigurowanych dla Banku 1
-	// (TMRD (Load mode register to active delay) i TRAS (Self -refresh time) timingi) w rejestrze FMC_SDTR1.
-	// Czasy TRP (opóźnienie wstępnego ładowania rzędów) i TRC (opóźnienie cyklu rzędów)
-	// są konfigurowane tylko w rejestrze FMC_SDTR1.
-	// Jeśli używane są dwa urządzenia SDRAM, taktowanie TRP i TRC musi być zaprogramowane
-	// z taktowaniem najwolniejszego urządzenia.
-	// ------------------------------------------------------------------------------------
-	// (samsung)
-	// (winbond)
+
 	// tMRD - Mode Register Set To Command Delay Time (ISSI)
 	// tMRD: 2 cykle - LOAD MODE REGISTER command to ACTIVE or REFRESH command (micron)
 	SdramTiming.LoadToActiveDelay = 2;
 
-	// (EN)Specifies the delay from releasing the Self-refresh command
-	// to issuing the Activate command in number of memory clock cycles.
-	// If two SDRAM devices are used, the FMC_SDTR1 and FMC_SDTR2 registers must be programmed with
-	// the same Exit Self-refresh Delay corresponding to the slowest SDRAM device.
-	// (PL)Określa opóźnienie od zwolnienia polecenia Self-refresh do wydania polecenia Activate
-	// w liczbie cykli zegara pamięci. Jeśli używane są dwa urządzenia SDRAM,
-	// rejestry FMC_SDTR1 i FMC_SDTR2 muszą być zaprogramowane
-	// z takim samym opóźnieniem samoodświeżania wyjścia odpowiadającym najwolniejszemu urządzeniu SDRAM.
-	// ------------------------------------------------------------------------------------
-	// (samsung)
-	// tXSR - Exit self refresh to ACTIVE Command (winbond)
+	// Defines the delay from releasing the self refresh command to issuing the Activate command in number of memory clock cycles.
 	// tXSR - Self-Refresh Exit Time (ISSI)
 	// tXSR: min=67ns - Exit SELF REFRESH-to-ACTIVE command (micron)
-	SdramTiming.ExitSelfRefreshDelay = 7; // obliczmy 67ns/10ns = 6.7, zaokrąglamy i podajemy w cyklach
+	// obliczmy 67ns/10ns = 6.7, zaokrąglamy i podajemy w cyklach
+	SdramTiming.ExitSelfRefreshDelay = 7;
 
-	// Specifies the minimum Self-refresh period in number of memory clock cycles.
-	// ------------------------------------------------------------------------------------
-	// tRAS - Row active time (samsung)
-	// tRAS - Active to precharge Command Period (winbond)
 	// tRAS - Command Period (ACT to PRE) (ISSI)
 	// tRAS: min=42ns max=120ns - ACTIVE-to-PRECHARGE command (micron)
-	SdramTiming.SelfRefreshTime = 4; // 42ns/10ns = 4.2, zaokrąglamy i podajemy w cyklach
+	// 42ns/10ns = 4.2, zaokrąglamy i podajemy w cyklach
+	SdramTiming.SelfRefreshTime = 4;
 
-	// Specifies the delay between the Refresh command and the Activate command,
-	// as well as the delay between two consecutive Refresh commands.
-	// It is expressed in number of memory clock cycles.
-	// The Row Cycle Delay is only configured in the FMC_SDTR1 register.
-	// If two SDRAM devices are used, the Row Cycle Delay must be programmed with the timings of the slowest device.
-	// ------------------------------------------------------------------------------------
-	// tRC - Row cycle time (samsung)
-	// tRC - Ref/Active to Ref/Active Command Period (winbond)
 	// tRC - Command Period (REF to REF / ACT to ACT) (ISSI)
 	// tRC: min=60ns - ACTIVE-to-ACTIVE command period (micron)
-	SdramTiming.RowCycleDelay = 6; // 60ns/10ns = 6, zaokrąglamy i podajemy w cyklach
+	// 60ns/10ns = 6, zaokrąglamy i podajemy w cyklach
+	SdramTiming.RowCycleDelay = 6;
 
 	// Defines the Write recovery Time in number of memory clock cycles.
 	// Specifies the delay between a Write and a Precharge command in number of memory clock cycles.
@@ -131,31 +94,20 @@ static void FMC_Init(void) {
 	// 2: WriteRecoveryTime >= RowCycleDelay - RowToColumnDelay - RowPrechargeDelay.
 	// If two SDRAM devices are used, the FMC_SDTR1 and FMC_SDTR2 registers
 	// must be programmed with the same Write Recovery Time corresponding to the slowest SDRAM device.
-	// ------------------------------------------------------------------------------------
-	// tRDL - Last data in to row precharge (samsung)
-	// tWR - Write Recovery Time (winbond)
-	// tDPL - Input Data To Precharge Command Delay time (ISSI)
+	// (ISSI)
 	// tWR: 1clk+7ns = 10ns+7ns = 17ns - WRITE recovery time (micron)
-	SdramTiming.WriteRecoveryTime = 2; // 17ns/10ns = 1.7, zaokrąglamy i podajemy w cyklach
+	// 17ns/10ns = 1.7, zaokrąglamy i podajemy w cyklach
+	SdramTiming.WriteRecoveryTime = 2;
 
-	// Specifies the delay between a Precharge command and another command in number of memory clock cycles.
-	// The Row Precharge Delay is only configured in the FMC_SDTR1 register.
-	// If two SDRAM devices are used, the Row Precharge Delay
-	// must be programmed with the timing of the slowest device.
-	// ------------------------------------------------------------------------------------
-	// tRP - Row precharge time (samsung)
-	// tRP - Precharge to Active Command Period (winbond)
 	// tRP - Command Period (PRE to ACT) (ISSI)
 	// tRP: 18ns - PRECHARGE command period (micron)
-	SdramTiming.RPDelay = 2; // 18ns/10ns = 1.8, zaokrąglamy i podajemy w cyklach
+	// 18ns/10ns = 1.8, zaokrąglamy i podajemy w cyklach
+	SdramTiming.RPDelay = 2;
 
-	// Defines the delay between the Activate Command and a Read/Write command in number of memory clock cycles.
-	// ------------------------------------------------------------------------------------
-	// tRCD - RAS to CAS delay (samsung)
-	// tRCD - Active to Read/Write	Command Delay Time (winbond)
 	// tRCD - Active Command To Read / Write Command Delay Time (ISSI)
 	// tRCD: 18ns - ACTIVE-to-READ or WRITE delay (micron)
-	SdramTiming.RCDDelay = 2; // 18ns to prawie 2 cykle, zaokrąglamy i podajemy w cyklach
+	// 18ns to prawie 2 cykle, zaokrąglamy i podajemy w cyklach
+	SdramTiming.RCDDelay = 2;
 
 	HAL_SDRAM_Init(&hsdram1, &SdramTiming);
 

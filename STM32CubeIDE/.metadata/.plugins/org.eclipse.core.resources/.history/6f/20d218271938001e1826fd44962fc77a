@@ -89,14 +89,10 @@ static void FMC_Init(void) {
 	// tMRD: 2 cykle - LOAD MODE REGISTER command to ACTIVE or REFRESH command (micron)
 	SdramTiming.LoadToActiveDelay = 2;
 
-	// (EN)Specifies the delay from releasing the Self-refresh command
+	// Specifies the delay from releasing the Self-refresh command
 	// to issuing the Activate command in number of memory clock cycles.
 	// If two SDRAM devices are used, the FMC_SDTR1 and FMC_SDTR2 registers must be programmed with
 	// the same Exit Self-refresh Delay corresponding to the slowest SDRAM device.
-	// (PL)Określa opóźnienie od zwolnienia polecenia Self-refresh do wydania polecenia Activate
-	// w liczbie cykli zegara pamięci. Jeśli używane są dwa urządzenia SDRAM,
-	// rejestry FMC_SDTR1 i FMC_SDTR2 muszą być zaprogramowane
-	// z takim samym opóźnieniem samoodświeżania wyjścia odpowiadającym najwolniejszemu urządzeniu SDRAM.
 	// ------------------------------------------------------------------------------------
 	// (samsung)
 	// tXSR - Exit self refresh to ACTIVE Command (winbond)
@@ -132,9 +128,9 @@ static void FMC_Init(void) {
 	// If two SDRAM devices are used, the FMC_SDTR1 and FMC_SDTR2 registers
 	// must be programmed with the same Write Recovery Time corresponding to the slowest SDRAM device.
 	// ------------------------------------------------------------------------------------
-	// tRDL - Last data in to row precharge (samsung)
+	// (samsung)
 	// tWR - Write Recovery Time (winbond)
-	// tDPL - Input Data To Precharge Command Delay time (ISSI)
+	// (ISSI)
 	// tWR: 1clk+7ns = 10ns+7ns = 17ns - WRITE recovery time (micron)
 	SdramTiming.WriteRecoveryTime = 2; // 17ns/10ns = 1.7, zaokrąglamy i podajemy w cyklach
 
