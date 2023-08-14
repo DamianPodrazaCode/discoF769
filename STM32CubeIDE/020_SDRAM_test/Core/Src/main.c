@@ -94,8 +94,9 @@ int main(void) {
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 
-	// adres start 0xC0000000 - adres stop 0xc0ffffff - 128Mb, 16MB, 8M half Word, 4M Word
-#define SDRAM_BANK_ADDR_START 		((uint32_t)0xC0000000)
+// 128Mb, 16MB, 8M half Word, 4M Word
+#define SDRAM_BANK_ADDR_START 	((uint32_t)0xC0000000)
+#define SDRAM_BANK_ADDR_STOP 	((uint32_t)0xC0ffffff)
 #define SDRAM_BANK_COUNT		(0x10000)
 
 	struct Test_ERR {
@@ -108,18 +109,19 @@ int main(void) {
 	struct Test_ERR test_err;
 
 	// uzupełnienie randomem małego bloku na stosie
-
 	uint8_t tab[0x100];
 	srand(HAL_GetTick());
 	for (int i = 0; i < 0x100; i++) {
 		tab[i] = rand() % 0x100;
 	}
 
+	// zapełnienie całej sdram powtarzanymi blokami
 	for (int j = 0; j < SDRAM_BANK_COUNT; j++)
 		for (int i = 0; i < 0x100; i++) {
 			*(__IO uint8_t*) (SDRAM_BANK_ADDR_START + (j * 0x100) + (1 * i)) = tab[i];
 		}
 
+	// porównanie pamięci
 	for (int j = 0; j < SDRAM_BANK_COUNT; j++)
 		for (int i = 0; i < 0x100; i++) {
 			if ((*(__IO uint8_t*) (SDRAM_BANK_ADDR_START + (j * 0x100) + (1 * i))) != tab[i]) {
@@ -214,19 +216,28 @@ static void MX_FMC_Init(void) {
 	hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
 	hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
 	/* SdramTiming */
-	SdramTiming.LoadToActiveDelay = 2;
-	SdramTiming.ExitSelfRefreshDelay = 7;
-	SdramTiming.SelfRefreshTime = 4;
-	SdramTiming.RowCycleDelay = 6;
-	SdramTiming.WriteRecoveryTime = 2;
-	SdramTiming.RPDelay = 2;
-	SdramTiming.RCDDelay = 2;
+	// SDRAM freq 100MHz = 10ns
+	SdramTiming.LoadToActiveDelay = 2; //tMRD = 2CLK
+	SdramTiming.ExitSelfRefreshDelay = 7; //tXSR = 67ns
+	SdramTiming.SelfRefreshTime = 5; //tRAS = 42ns
+	SdramTiming.RowCycleDelay = 6; //tRC = 60ns
+	SdramTiming.WriteRecoveryTime = 2; //tWR = (1CLK+ 7ns) = 17ns
+	SdramTiming.RPDelay = 2; //tRP = 18ns
+	SdramTiming.RCDDelay = 2; //tRCD = 18ns
 
 	if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK) {
 		Error_Handler();
 	}
 
 	/* USER CODE BEGIN FMC_Init 2 */
+// SDRAM freq 100MHz = 10ns
+//	SdramTiming.LoadToActiveDelay = 2; //tMRD = 2CLK
+//	SdramTiming.ExitSelfRefreshDelay = 7; //tXSR = 67ns
+//	SdramTiming.SelfRefreshTime = 5; //tRAS = 42ns
+//	SdramTiming.RowCycleDelay = 6; //tRC = 60ns
+//	SdramTiming.WriteRecoveryTime = 2; //tWR = (1CLK+ 7ns) = 17ns
+//	SdramTiming.RPDelay = 2; //tRP = 18ns
+//	SdramTiming.RCDDelay = 2; //tRCD = 18ns
 #define SDRAM_MODEREG_BURST_LENGTH_1            	((uint16_t)0x0000)
 #define SDRAM_MODEREG_BURST_LENGTH_2            	((uint16_t)0x0001)
 #define SDRAM_MODEREG_BURST_LENGTH_4            	((uint16_t)0x0002)

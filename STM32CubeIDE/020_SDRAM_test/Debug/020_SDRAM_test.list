@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 0000053e  00000000  00000000  000293c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0002d2c6  00000000  00000000  000298fe  2**0
+ 17 .debug_macro  0002d2cc  00000000  00000000  000298fe  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000849a  00000000  00000000  00056bc4  2**0
+ 18 .debug_line   00008497  00000000  00000000  00056bca  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0010dfa3  00000000  00000000  0005f05e  2**0
+ 19 .debug_str    0010dfcf  00000000  00000000  0005f061  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  000024b8  00000000  00000000  0016d004  2**2
+ 20 .debug_frame  000024b8  00000000  00000000  0016d030  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000060  00000000  00000000  0016f4bc  2**0
+ 21 .debug_line_str 00000060  00000000  00000000  0016f4e8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -455,7 +455,6 @@ int main(void) {
 	struct Test_ERR test_err;
 
 	// uzupełnienie randomem małego bloku na stosie
-
 	uint8_t tab[0x100];
 	srand(HAL_GetTick());
  80005fa:	f000 fc69 	bl	8000ed0 <HAL_GetTick>
@@ -490,6 +489,7 @@ int main(void) {
  8000642:	dde4      	ble.n	800060e <main+0x32>
 	}
 
+	// zapełnienie całej sdram powtarzanymi blokami
 	for (int j = 0; j < SDRAM_BANK_COUNT; j++)
  8000644:	2300      	movs	r3, #0
  8000646:	f8c7 3710 	str.w	r3, [r7, #1808]	; 0x710
@@ -528,6 +528,7 @@ int main(void) {
  800069e:	dbd5      	blt.n	800064c <main+0x70>
 		}
 
+	// porównanie pamięci
 	for (int j = 0; j < SDRAM_BANK_COUNT; j++)
  80006a0:	2300      	movs	r3, #0
  80006a2:	f8c7 3708 	str.w	r3, [r7, #1800]	; 0x708
@@ -612,11 +613,9 @@ int main(void) {
 			}
 		}
 
-	__NOP();
- 800077c:	bf00      	nop
-
 	while (1) {
- 800077e:	e7fe      	b.n	800077e <main+0x1a2>
+ 800077c:	e7fe      	b.n	800077c <main+0x1a0>
+	...
 
 08000780 <SystemClock_Config>:
 
@@ -830,25 +829,26 @@ static void MX_FMC_Init(void) {
  80008ba:	2200      	movs	r2, #0
  80008bc:	629a      	str	r2, [r3, #40]	; 0x28
 	/* SdramTiming */
-	SdramTiming.LoadToActiveDelay = 2;
+	// SDRAM freq 100MHz = 10ns
+	SdramTiming.LoadToActiveDelay = 2; //tMRD = 2CLK
  80008be:	2302      	movs	r3, #2
  80008c0:	617b      	str	r3, [r7, #20]
-	SdramTiming.ExitSelfRefreshDelay = 7;
+	SdramTiming.ExitSelfRefreshDelay = 7; //tXSR = 67ns
  80008c2:	2307      	movs	r3, #7
  80008c4:	61bb      	str	r3, [r7, #24]
-	SdramTiming.SelfRefreshTime = 4;
- 80008c6:	2304      	movs	r3, #4
+	SdramTiming.SelfRefreshTime = 5; //tRAS = 42ns
+ 80008c6:	2305      	movs	r3, #5
  80008c8:	61fb      	str	r3, [r7, #28]
-	SdramTiming.RowCycleDelay = 6;
+	SdramTiming.RowCycleDelay = 6; //tRC = 60ns
  80008ca:	2306      	movs	r3, #6
  80008cc:	623b      	str	r3, [r7, #32]
-	SdramTiming.WriteRecoveryTime = 2;
+	SdramTiming.WriteRecoveryTime = 2; //tWR = (1CLK+ 7ns) = 17ns
  80008ce:	2302      	movs	r3, #2
  80008d0:	627b      	str	r3, [r7, #36]	; 0x24
-	SdramTiming.RPDelay = 2;
+	SdramTiming.RPDelay = 2; //tRP = 18ns
  80008d2:	2302      	movs	r3, #2
  80008d4:	62bb      	str	r3, [r7, #40]	; 0x28
-	SdramTiming.RCDDelay = 2;
+	SdramTiming.RCDDelay = 2; //tRCD = 18ns
  80008d6:	2302      	movs	r3, #2
  80008d8:	62fb      	str	r3, [r7, #44]	; 0x2c
 
