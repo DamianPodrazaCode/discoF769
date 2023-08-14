@@ -81,6 +81,7 @@ static void FMC_Init(void) {
 	// z taktowaniem najwolniejszego urządzenia.
 	// ------------------------------------------------------------------------------------
 	// (samsung)
+	// (winbond)
 	// tMRD - Mode Register Set To Command Delay Time (ISSI)
 	// tMRD: 2 cykle - LOAD MODE REGISTER command to ACTIVE or REFRESH command (micron)
 	SdramTiming.LoadToActiveDelay = 2;
@@ -95,6 +96,7 @@ static void FMC_Init(void) {
 	// z takim samym opóźnieniem samoodświeżania wyjścia odpowiadającym najwolniejszemu urządzeniu SDRAM.
 	// ------------------------------------------------------------------------------------
 	// (samsung)
+	// tXSR - Exit self refresh to ACTIVE Command (winbond)
 	// tXSR - Self-Refresh Exit Time (ISSI)
 	// tXSR: min=67ns - Exit SELF REFRESH-to-ACTIVE command (micron)
 	SdramTiming.ExitSelfRefreshDelay = 7; // obliczmy 67ns/10ns = 6.7, zaokrąglamy i podajemy w cyklach
@@ -102,6 +104,7 @@ static void FMC_Init(void) {
 	// Specifies the minimum Self-refresh period in number of memory clock cycles.
 	// ------------------------------------------------------------------------------------
 	// tRAS - Row active time (samsung)
+	// tRAS - Active to precharge Command Period (winbond)
 	// tRAS - Command Period (ACT to PRE) (ISSI)
 	// tRAS: min=42ns max=120ns - ACTIVE-to-PRECHARGE command (micron)
 	SdramTiming.SelfRefreshTime = 4; // 42ns/10ns = 4.2, zaokrąglamy i podajemy w cyklach
@@ -113,6 +116,7 @@ static void FMC_Init(void) {
 	// If two SDRAM devices are used, the Row Cycle Delay must be programmed with the timings of the slowest device.
 	// ------------------------------------------------------------------------------------
 	// tRC - Row cycle time (samsung)
+	// tRC - Ref/Active to Ref/Active Command Period (winbond)
 	// tRC - Command Period (REF to REF / ACT to ACT) (ISSI)
 	// tRC: min=60ns - ACTIVE-to-ACTIVE command period (micron)
 	SdramTiming.RowCycleDelay = 6; // 60ns/10ns = 6, zaokrąglamy i podajemy w cyklach
@@ -126,6 +130,7 @@ static void FMC_Init(void) {
 	// must be programmed with the same Write Recovery Time corresponding to the slowest SDRAM device.
 	// ------------------------------------------------------------------------------------
 	// tRDL - Last data in to row precharge (samsung)
+	// tWR - Write Recovery Time (winbond)
 	// tDPL - Input Data To Precharge Command Delay time (ISSI)
 	// tWR: 1clk+7ns = 10ns+7ns = 17ns - WRITE recovery time (micron)
 	SdramTiming.WriteRecoveryTime = 2; // 17ns/10ns = 1.7, zaokrąglamy i podajemy w cyklach
@@ -136,6 +141,7 @@ static void FMC_Init(void) {
 	// must be programmed with the timing of the slowest device.
 	// ------------------------------------------------------------------------------------
 	// tRP - Row precharge time (samsung)
+	// tRP - Precharge to Active Command Period (winbond)
 	// tRP - Command Period (PRE to ACT) (ISSI)
 	// tRP: 18ns - PRECHARGE command period (micron)
 	SdramTiming.RPDelay = 2; // 18ns/10ns = 1.8, zaokrąglamy i podajemy w cyklach
@@ -143,35 +149,50 @@ static void FMC_Init(void) {
 	// Defines the delay between the Activate Command and a Read/Write command in number of memory clock cycles.
 	// ------------------------------------------------------------------------------------
 	// tRCD - RAS to CAS delay (samsung)
+	// tRCD - Active to Read/Write	Command Delay Time (winbond)
 	// tRCD - Active Command To Read / Write Command Delay Time (ISSI)
 	// tRCD: 18ns - ACTIVE-to-READ or WRITE delay (micron)
 	SdramTiming.RCDDelay = 2; // 18ns to prawie 2 cykle, zaokrąglamy i podajemy w cyklach
 
 	HAL_SDRAM_Init(&hsdram1, &SdramTiming);
 
-	// inicjalizacja pamięci SDRAM.
-	FMC_SDRAM_CommandTypeDef cmd = { 0 };
-	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
-
+	// inicjalizacja pamięci SDRAM, każda pamięć ma swój rodzaj inicjalizacji, ale wszystkie są do siebie bardzo podobne
+	FMC_SDRAM_CommandTypeDef cmd;
+	// Configure a clock configuration enable command
 	cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
+
+	// Insert 100 us minimum delay. Inserted delay is equal to 1 ms due to systick time base unit (ms)
 	HAL_Delay(1);
 
+	// Configure a PALL (precharge all) command
 	cmd.CommandMode = FMC_SDRAM_CMD_PALL;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
+	// Configure a Auto-Refresh command
 	cmd.CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
 	cmd.AutoRefreshNumber = 8;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
+	// Program the external memory mode register
 	cmd.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
-	cmd.ModeRegisterDefinition = //
-			SDRAM_MODEREG_BURST_LENGTH_1 |
-			SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL |
-			SDRAM_MODEREG_CAS_LATENCY_2 |
-			SDRAM_MODEREG_OPERATING_MODE_STANDARD |
-			SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition =
+	SDRAM_MODEREG_BURST_LENGTH_1 |
+	SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL |
+	SDRAM_MODEREG_CAS_LATENCY_2 |
+	SDRAM_MODEREG_OPERATING_MODE_STANDARD |
+	SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 
 	// SDRAM refresh rate = SDRAM refresh period / Number of rows
 	// Refresh rate = (SDRAM refresh rate × SDRAM clock frequency) – 20
