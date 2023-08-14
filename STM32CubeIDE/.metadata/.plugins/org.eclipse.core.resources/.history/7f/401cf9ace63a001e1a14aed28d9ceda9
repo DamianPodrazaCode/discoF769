@@ -130,6 +130,8 @@ int main(void) {
 			}
 		}
 
+	__NOP();
+
 	while (1) {
 		/* USER CODE END WHILE */
 
