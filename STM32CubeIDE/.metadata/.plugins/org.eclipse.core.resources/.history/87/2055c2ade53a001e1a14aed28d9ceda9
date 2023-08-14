@@ -241,29 +241,34 @@ static void MX_FMC_Init(void) {
 #define SDRAM_MODEREG_WRITEBURST_MODE_PROGRAMMED	((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_SINGLE    	((uint16_t)0x0200)
 	// SDRAM Initialization Sequence
-	FMC_SDRAM_CommandTypeDef cmd = { 0 };
+	FMC_SDRAM_CommandTypeDef cmd = {0};
 	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
 
 	cmd.CommandMode = FMC_SDRAM_CMD_CLK_ENABLE;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 	HAL_Delay(1);
-
 	cmd.CommandMode = FMC_SDRAM_CMD_PALL;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
-
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 	cmd.CommandMode = FMC_SDRAM_CMD_AUTOREFRESH_MODE;
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
 	cmd.AutoRefreshNumber = 8;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
-
+	cmd.ModeRegisterDefinition = 0;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 	cmd.CommandMode = FMC_SDRAM_CMD_LOAD_MODE;
-	cmd.ModeRegisterDefinition = //
-			SDRAM_MODEREG_BURST_LENGTH_1 |
-			SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL |
-			SDRAM_MODEREG_CAS_LATENCY_2 |
-			SDRAM_MODEREG_OPERATING_MODE_STANDARD |
-			SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
-	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0x100);
-
+	cmd.CommandTarget = FMC_SDRAM_CMD_TARGET_BANK1;
+	cmd.AutoRefreshNumber = 1;
+	cmd.ModeRegisterDefinition =
+	SDRAM_MODEREG_BURST_LENGTH_1 |
+	SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL |
+	SDRAM_MODEREG_CAS_LATENCY_2 |
+	SDRAM_MODEREG_OPERATING_MODE_STANDARD |
+	SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+	HAL_SDRAM_SendCommand(&hsdram1, &cmd, 0xFFFF);
 	HAL_SDRAM_ProgramRefreshRate(&hsdram1, 1543);
 	/* USER CODE END FMC_Init 2 */
 }

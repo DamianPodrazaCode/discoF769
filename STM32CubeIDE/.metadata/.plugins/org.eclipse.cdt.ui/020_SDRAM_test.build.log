@@ -1,0 +1,10 @@
+23:01:09 **** Incremental Build of configuration Debug for project 020_SDRAM_test ****
+make -j12 all 
+arm-none-eabi-size   020_SDRAM_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7960	     20	   1628	   9608	   2588	020_SDRAM_test.elf
+Finished building: default.size.stdout
+ 
+
+23:01:09 Build Finished. 0 errors, 0 warnings. (took 140ms)
+

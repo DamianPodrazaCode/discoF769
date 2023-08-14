@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:020_SDRAM Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:020_SDRAM_test
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:000_Szablon\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:000_Szablon\ Debug/activeLaunchTarget=null\:---
@@ -40,6 +40,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:011_SPI_IT_DMA\ Debug/activeLau
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01_SPI_REG_Tx_Polling\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:020_SDRAM\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:020_SDRAM\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:020_SDRAM_test/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:02_SPI_HAL_Tx_IT\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_SPI_HAL_Tx_DMA\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:03_SPI_HAL_Tx_DMA\ Debug/activeLaunchTarget=null\:---
