@@ -1,0 +1,10 @@
+17:51:47 **** Incremental Build of configuration Debug for project 115_SDRAM ****
+make all 
+arm-none-eabi-size   115_SDRAM.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	    112	   1976	  14576	   38f0	115_SDRAM.elf
+Finished building: default.size.stdout
+ 
+
+17:51:47 Build Finished. 0 errors, 0 warnings. (took 352ms)
+

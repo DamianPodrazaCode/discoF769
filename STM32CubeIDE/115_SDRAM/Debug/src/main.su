@@ -1,0 +1,5 @@
+../src/main.c:30:5:main	1824	static
+../src/main.c:80:6:SystemClock_Config	80	static
+../src/main.c:102:6:Gpio_init	32	static
+../src/main.c:110:6:Fmc_init	56	static
+../src/main.c:149:6:Sdram_init	40	static
